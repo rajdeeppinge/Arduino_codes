@@ -1,0 +1,29 @@
+Code to generate a clock in arduino
+
+int clockPin = 2;
+int testPin = 12;
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(clockPin,OUTPUT);
+  pinMode(testPin, INPUT);  
+  pinMode(testPin2, INPUT);  
+  Serial.begin(9600);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  digitalWrite(clockPin,HIGH);
+
+  for(int i=0;i<500;i+=100)
+  {
+    delay(100);
+    Serial.println(digitalRead(testPin));
+  }
+  digitalWrite(clockPin,LOW);
+  for(int i=0;i<500;i+=100)
+  {
+    delay(100);
+Serial.println(digitalRead(testPin));
+  }
+}
